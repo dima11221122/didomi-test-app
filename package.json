@@ -16,6 +16,7 @@
     "@angular/common": "~9.1.4",
     "@angular/compiler": "~9.1.4",
     "@angular/core": "~9.1.4",
+    "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/forms": "~9.1.4",
     "@angular/material": "^9.2.2",
     "@angular/platform-browser": "~9.1.4",
@@ -26,6 +27,7 @@
     "@ngrx/schematics": "^9.1.0",
     "@ngrx/store": "^9.1.0",
     "@ngrx/store-devtools": "^9.1.0",
+    "jasmine-marbles": "^0.6.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
