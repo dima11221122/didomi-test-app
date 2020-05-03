@@ -75,13 +75,18 @@ describe('GiveConsentFormComponent', () => {
     return fixture.debugElement.query(By.css('button'));
   }
 
+  const getEmailElement = (): DebugElement => {
+    return fixture.debugElement.query(By.css('mat-form-field input[formcontrolname="email"]'));
+  }
+
+  const getCheckboxByName = (checkboxName: string): DebugElement => {
+    return fixture.debugElement.query(By.css(`mat-checkbox[formcontrolname="${checkboxName}"] input`))
+  }
+
   describe('email field', () => {
     let emailElement: DebugElement;
     const invalidClass = 'ng-invalid';
 
-    const getEmailElement = (): DebugElement => {
-      return fixture.debugElement.query(By.css('mat-form-field input[formcontrolname="email"]'));
-    }
 
     beforeEach(() => {
       emailElement = getEmailElement();
@@ -122,11 +127,33 @@ describe('GiveConsentFormComponent', () => {
     for (let checkboxName of checkboxes) {
       it(`form should be valid if ${checkboxName} is activated`, () => {
         expect(getSubmitButton().nativeElement.disabled).toBeTrue();
-        const checkbox = fixture.debugElement.query(By.css(`mat-checkbox[formcontrolname="${checkboxName}"] input`));
+        const checkbox = getCheckboxByName(checkboxName);
         checkbox.triggerEventHandler('click', new Event('click'));
         fixture.detectChanges();
         expect(getSubmitButton().nativeElement.disabled).not.toBeTrue();
       })
     }
+  })
+
+  describe('submit form', () => {
+    const trySubmitByEnter = () => {
+      let submittedData = null;
+      component.submitted.subscribe(data => submittedData = data);
+      const form = fixture.debugElement.query(By.css('form'));
+      form.triggerEventHandler('submit', null);
+      fixture.detectChanges();
+      return submittedData;
+    }
+    it('invalid form should not be submitted on Enter', () => {
+      expect(trySubmitByEnter()).toBeNull();
+    })
+
+    it('invalid form should not be submitted on Enter', () => {
+      const checkbox = getCheckboxByName('receiveNewsletter');
+      checkbox.triggerEventHandler('click', new Event('click'));
+      fixture.detectChanges();
+      const expectedData = {name: null, email: null, receiveNewsletter: true, targetedAds: null, trackVisits: null};
+      expect(trySubmitByEnter()).toEqual(expectedData);
+    })
   })
 });

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoaderComponent } from './loader.component';
 import { BehaviorSubject } from 'rxjs';
-import { UiService } from '../../modules/shared/services/ui.service';
+import { UiService } from '../../modules/shared/services/ui/ui.service';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 describe('LoaderComponent', () => {

@@ -5,6 +5,7 @@ export const setLoading = createAction(
   props<{payload: boolean}>()
 )
 
-
-
-
+export const showSuccessMessage = createAction(
+  '[Ui] show success message',
+  props<{payload: string}>()
+)

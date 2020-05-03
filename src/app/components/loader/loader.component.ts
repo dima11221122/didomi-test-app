@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { UiService } from '../../modules/shared/services/ui.service';
+import { UiService } from '../../modules/shared/services/ui/ui.service';
 
 @Component({
   selector: 'app-loader',

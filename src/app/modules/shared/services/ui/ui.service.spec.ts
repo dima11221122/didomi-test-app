@@ -1,19 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UiService } from './ui.service';
-import { sharedFeatureKey, SharedState } from '../store/reducers';
-import { UiState } from '../store/ui/ui.reducer';
+import { sharedFeatureKey, SharedState } from '../../store/reducers';
+import { UiState } from '../../store/ui/ui.reducer';
 import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { cold, hot } from 'jasmine-marbles';
 import { take } from 'rxjs/operators';
-import { setLoading } from '../store/ui/ui.actions';
+import { setLoading, showSuccessMessage } from '../../store/ui/ui.actions';
 
 describe('UiService', () => {
   let service: UiService;
-  let initialState: { [ sharedFeatureKey ]: SharedState };
+  let initialState: { [sharedFeatureKey]: SharedState };
   let store: MockStore;
-  const getState = loading => ({ [sharedFeatureKey]:  { ui: { loading } } })
+  const getState = loading => ({ [sharedFeatureKey]: { ui: { loading } } });
 
   beforeEach(() => {
     initialState = getState(false);
@@ -38,9 +38,17 @@ describe('UiService', () => {
     });
   });
 
+  describe('#showSuccessMessage', () => {
+    it('show emit show success message action', () => {
+      const dispatchSpy = spyOn(store, 'dispatch');
+      service.showSuccessMessage('Success message');
+      expect(dispatchSpy).toHaveBeenCalledWith(showSuccessMessage({ payload: 'Success message' }));
+    });
+  });
+
   it('selectLoading$', () => {
     store.setState(getState(true));
     const expected = hot('a', { a: true });
     expect(service.selectLoading$).toBeObservable(expected);
-  })
+  });
 });

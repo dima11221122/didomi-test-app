@@ -12,6 +12,11 @@ import { FlexModule } from '@angular/flex-layout';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { GiveConsentFormComponent } from './components/give-consent/give-consent-form/give-consent-form.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromGiveConsent from './store/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { CreateConsentEffects } from './store/create-consent/create-consent.effects';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -28,7 +33,10 @@ import { GiveConsentFormComponent } from './components/give-consent/give-consent
     ReactiveFormsModule,
     FlexModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forFeature(fromGiveConsent.giveConsentFeatureKey, fromGiveConsent.reducers, { metaReducers: fromGiveConsent.metaReducers }),
+    EffectsModule.forFeature([CreateConsentEffects]),
+    SharedModule
   ]
 })
 export class GiveConsentModule { }
