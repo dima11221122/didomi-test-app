@@ -1,0 +1,30 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <form
+    class="form-wrapper"
+    fxLayout="column"
+    fxLayoutGap="16px"
+    [formGroup]="form"
+    (ngSubmit)="submit()"
+  >
+    <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email address</mat-label>
+        <input formControlName="email" matInput>
+        <mat-error *ngIf="form.get('email').invalid">Email has incorrect format</mat-error>
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">I agree:</div>
+    <div fxLayout="column">
+      <mat-checkbox formControlName="receiveNewsletter">Receive newsletter</mat-checkbox>
+      <mat-checkbox formControlName="targetedAds">Be shown targeted ads</mat-checkbox>
+      <mat-checkbox formControlName="trackVisits">Contribute to anonymous visit statistic</mat-checkbox>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Give consent</button>
+    </div>
+  </form>
+</div>

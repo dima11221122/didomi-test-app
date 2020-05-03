@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
@@ -19,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from './modules/shared/shared.module';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AppRoutingModule } from './routing/app-routing.module';
 
 @NgModule({
   declarations: [
