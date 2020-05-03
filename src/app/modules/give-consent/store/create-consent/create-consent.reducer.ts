@@ -13,7 +13,7 @@ export const initialState: CreateConsentState = {
 };
 
 
-export const reducer = createReducer(
+export const createConsentReducer = createReducer(
   initialState,
   on(createConsentFail, (state, { payload }) => ({ ...state, error: payload }))
 );

@@ -6,7 +6,7 @@ import { HttpRequest } from '@angular/common/http';
 
 let id = 4;
 
-const consents: Consent[] = [
+let consents: Consent[] = [
   {
     id: 1,
     name: 'John Doe',
@@ -28,8 +28,12 @@ const consents: Consent[] = [
 
 export function createConsent(req?: HttpRequest<Consent>) {
   const data = { ...req.body, id: id++ };
-  consents.push(data);
+  consents = [...consents, data];
   return json(200, data);
+}
+
+export function getConsents() {
+  return json(200, consents);
 }
 
 const appMockRoutes: RouteDeclaration[] = [
@@ -38,7 +42,12 @@ const appMockRoutes: RouteDeclaration[] = [
     method: 'POST',
     callback: createConsent
   },
-]
+  {
+    path: '/consents',
+    method: 'GET',
+    callback: getConsents
+  }
+];
 
 @NgModule({
   declarations: [],
@@ -47,5 +56,5 @@ const appMockRoutes: RouteDeclaration[] = [
     NgxMockServerModule.forRoot({ enabled: true, routes: appMockRoutes })
   ]
 })
-export class GiveConsentMockModule {
+export class AppMockModule {
 }

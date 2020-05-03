@@ -1,1 +1,23 @@
-<p>collected-consents works!</p>
+<div class="consents-table-wrapper">
+  <table mat-table [dataSource]="consents$ | async" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="consents">
+      <th mat-header-cell *matHeaderCellDef> Consent given for </th>
+      <td mat-cell *matCellDef="let element"> {{element | stringifyConsent}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator pageSize="2" showFirstLastButtons></mat-paginator>
+</div>
+

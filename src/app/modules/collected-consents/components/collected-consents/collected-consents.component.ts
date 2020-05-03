@@ -1,13 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { CollectedConsentsService } from '../../services/collected-consents/collected-consents.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-collected-consents',
   templateUrl: './collected-consents.component.html',
-  styleUrls: ['./collected-consents.component.scss']
+  styleUrls: ['./collected-consents.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CollectedConsentsComponent implements OnInit {
-
-  constructor() { }
+  consents$ = this.collectedConsentsService.consents$;
+  displayedColumns = ['name', 'email', 'consents'];
+  constructor(
+    private collectedConsentsService: CollectedConsentsService
+  ) { }
 
   ngOnInit(): void {
   }

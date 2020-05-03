@@ -21,7 +21,7 @@ import { AppRoutingModule } from './routing/app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ShowLoaderInterceptor } from './services/show-loader/show-loader.interceptor';
 import { NgxMockServerModule } from 'ngx-mock-server';
-import { GiveConsentMockModule } from './mock/give-consent-mock.module';
+import { AppMockModule } from './mock/app-mock.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,7 @@ import { GiveConsentMockModule } from './mock/give-consent-mock.module';
     MatIconModule,
     MatProgressBarModule,
     SharedModule,
-    GiveConsentMockModule
+    AppMockModule
   ],
   providers: [
     {
