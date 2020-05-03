@@ -18,6 +18,8 @@ import { SharedModule } from './modules/shared/shared.module';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AppRoutingModule } from './routing/app-routing.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ShowLoaderInterceptor } from './services/show-loader/show-loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,13 @@ import { AppRoutingModule } from './routing/app-routing.module';
     MatProgressBarModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ShowLoaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

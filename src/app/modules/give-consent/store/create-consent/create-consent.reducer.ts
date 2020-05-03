@@ -1,4 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { createConsentFail } from './create-consent.actions';
 
 
 export const createConsentFeatureKey = 'createConsent';
@@ -14,6 +15,6 @@ export const initialState: CreateConsentState = {
 
 export const reducer = createReducer(
   initialState,
-
+  on(createConsentFail, (state, { payload }) => ({ ...state, error: payload }))
 );
 

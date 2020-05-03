@@ -1,4 +1,5 @@
 import { reducer, initialState } from './create-consent.reducer';
+import { createConsentFail } from './create-consent.actions';
 
 describe('CreateConsent Reducer', () => {
   describe('an unknown action', () => {
@@ -9,5 +10,10 @@ describe('CreateConsent Reducer', () => {
 
       expect(result).toBe(initialState);
     });
+  });
+
+  it('createConsentFail should save error in store', () => {
+    const result = reducer(initialState, createConsentFail({ payload: 'Error' }));
+    expect(result).toEqual({ error: 'Error' });
   });
 });
