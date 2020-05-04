@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Consent } from '../../../shared/models/consent';
 
+/**
+ * Show text representation of selected consents
+ */
 @Pipe({
   name: 'stringifyConsent'
 })

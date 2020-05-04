@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CollectedConsentsService } from '../../services/collected-consents/collected-consents.service';
 import { MatTableDataSource } from '@angular/material/table';
 
+/**
+ * Root component for showing of consents table
+ */
 @Component({
   selector: 'app-collected-consents',
   templateUrl: './collected-consents.component.html',

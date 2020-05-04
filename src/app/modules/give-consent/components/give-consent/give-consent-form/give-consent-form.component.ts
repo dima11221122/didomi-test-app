@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Consent } from '../../../../shared/models/consent';
 
+/**
+ * Dumb component the form of creating of consent entity
+ */
 @Component({
   selector: 'app-give-consent-form',
   templateUrl: './give-consent-form.component.html',
@@ -26,6 +29,9 @@ export class GiveConsentFormComponent implements OnInit {
     })
   }
 
+  /**
+   * Check if at least one consent is selected
+   */
   atLeastOnePermissionRequiredValidator() {
     return (formGroup: FormGroup) => {
       const { receiveNewsletter, targetedAds, trackVisits } = formGroup.value;

@@ -11,6 +11,9 @@ const routes: Routes = [
   }
 ]
 
+/**
+ * Routing module for {@link GiveConsentModule}
+ */
 @NgModule({
   declarations: [],
   imports: [

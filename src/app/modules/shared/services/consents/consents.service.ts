@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { Consent } from '../../models/consent';
 import { Observable } from 'rxjs';
 
+/**
+ * Consents gateway
+ */
 @Injectable({
   providedIn: 'root'
 })

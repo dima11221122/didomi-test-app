@@ -39,6 +39,9 @@ const appMockRoutes: RouteDeclaration[] = [
   }
 ];
 
+/**
+ * Module for angular-level http mock
+ */
 @NgModule({
   declarations: [],
   imports: [

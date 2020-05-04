@@ -1,17 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of, throwError } from 'rxjs';
-
-import { CreateConsentEffects } from './create-consent.effects';
+import { ConsentsManagementEffects } from './consents-management.effects';
 import { Consent } from '../../../shared/models/consent';
-import { createConsent, createConsentFail } from './create-consent.actions';
+import { createConsent, createConsentFail } from './consents-management.actions';
 import { ConsentsService } from '../../../shared/services/consents/consents.service';
 import { hot } from 'jasmine-marbles';
 import { showSuccessMessage } from '../../../shared/store/ui/ui.actions';
 
 describe('CreateConsentEffects', () => {
   let actions$: Observable<any>;
-  let effects: CreateConsentEffects;
+  let effects: ConsentsManagementEffects;
   let consentServiceMock: {
     createConsent: jasmine.Spy
   };
@@ -20,13 +19,13 @@ describe('CreateConsentEffects', () => {
     consentServiceMock = jasmine.createSpyObj(['createConsent']);
     TestBed.configureTestingModule({
       providers: [
-        CreateConsentEffects,
+        ConsentsManagementEffects,
         provideMockActions(() => actions$),
         { provide: ConsentsService, useValue: consentServiceMock }
       ]
     });
 
-    effects = TestBed.get<CreateConsentEffects>(CreateConsentEffects);
+    effects = TestBed.get<ConsentsManagementEffects>(ConsentsManagementEffects);
   });
 
   it('should be created', () => {

@@ -15,11 +15,13 @@ import { GiveConsentFormComponent } from './components/give-consent/give-consent
 import { StoreModule } from '@ngrx/store';
 import * as fromGiveConsent from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { CreateConsentEffects } from './store/create-consent/create-consent.effects';
 import { SharedModule } from '../shared/shared.module';
+import { ConsentsManagementEffects } from './store/consents-management/consents-management.effects';
 
 
-
+/**
+ * Module for displaying list of created consents
+ */
 @NgModule({
   declarations: [GiveConsentComponent, GiveConsentFormComponent],
   imports: [
@@ -35,7 +37,7 @@ import { SharedModule } from '../shared/shared.module';
     MatCheckboxModule,
     HttpClientModule,
     StoreModule.forFeature(fromGiveConsent.giveConsentFeatureKey, fromGiveConsent.reducers, { metaReducers: fromGiveConsent.metaReducers }),
-    EffectsModule.forFeature([CreateConsentEffects]),
+    EffectsModule.forFeature([ConsentsManagementEffects]),
     SharedModule
   ]
 })

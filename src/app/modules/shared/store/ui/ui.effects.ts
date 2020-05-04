@@ -13,6 +13,9 @@ export class UiEffects {
     private snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Show message in snack bar
+   */
   showSuccessMessage$ = createEffect(() => this.actions$.pipe(
     ofType(showSuccessMessage.type),
     tap(({ payload }) => this.snackBar.open(payload))

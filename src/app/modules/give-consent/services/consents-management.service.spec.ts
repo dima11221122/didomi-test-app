@@ -1,12 +1,11 @@
 import { TestBed } from '@angular/core/testing';
-
-import { GiveConsentService } from './give-consent.service';
+import { ConsentsManagementService } from './consents-management.service';
 import { Store } from '@ngrx/store';
 import { Consent } from '../../shared/models/consent';
-import { createConsent } from '../store/create-consent/create-consent.actions';
+import { createConsent } from '../store/consents-management/consents-management.actions';
 
-describe('GiveConsentService', () => {
-  let service: GiveConsentService;
+describe('ConsentsManagementService', () => {
+  let service: ConsentsManagementService;
   let storeMock: {
     dispatch: jasmine.Spy
   };
@@ -17,7 +16,7 @@ describe('GiveConsentService', () => {
         { provide: Store, useValue: storeMock }
       ]
     });
-    service = TestBed.inject(GiveConsentService);
+    service = TestBed.inject(ConsentsManagementService);
   });
 
   it('should be created', () => {

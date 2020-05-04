@@ -3,16 +3,16 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
-import { CreateConsentState, createConsentReducer } from './create-consent/create-consent.reducer';
+import { consentsManagementReducer, ConsentsManagementState } from './consents-management/consents-management.reducer';
 
 export const giveConsentFeatureKey = 'giveConsent';
 
 export interface GiveConsentState {
-  createConsent: CreateConsentState;
+  consentsManagement: ConsentsManagementState;
 }
 
 export const reducers: ActionReducerMap<GiveConsentState> = {
-  createConsent: createConsentReducer
+  consentsManagement: consentsManagementReducer
 };
 
 export const metaReducers: MetaReducer<GiveConsentState>[] = !environment.production ? [] : [];

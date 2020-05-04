@@ -3,6 +3,9 @@ import { hasNextPage, selectTotalPages, hasPrevPage, selectCurrentPage } from '.
 import { Store } from '@ngrx/store';
 import { previousPage, nextPage, setPage } from '../../store/consents/consents.actions';
 
+/**
+ * Service for working with the consents table state.
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -10,6 +10,9 @@ import {
 } from '@angular/core';
 import { PageItem, PagesPanelGeneratorService } from './pages-panel-generator/pages-panel-generator.service';
 
+/**
+ * Component of pages numbers. It's the central part of {@link PaginationComponent}
+ */
 @Component({
   selector: 'app-pagination-pages-panel',
   templateUrl: './pagination-pages-panel.component.html',

@@ -3,6 +3,9 @@ import { Store } from '@ngrx/store';
 import { loadConsents} from '../../store/consents/consents.actions';
 import { selectConsents} from '../../store/consents/consents.selectors';
 
+/**
+ * Proxy service for working with {@link ConsentsState} store
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +16,9 @@ export class CollectedConsentsService {
     private store: Store
   ) { }
 
+  /**
+   * Initiate process of loading of consents
+   */
   loadConsents() {
     this.store.dispatch(loadConsents());
   }

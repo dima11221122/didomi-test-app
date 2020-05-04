@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TableHandlerService } from '../../../services/table-handler/table-handler.service';
 
-
-// standard mat-paginator is not suitable here
-// because it doesn't show page numbers
+/**
+ * Pagination controller as a replacement of standard mat-paginator.
+ * Standard mat-paginator is not suitable here, because it doesn't show pages numbers
+ */
 @Component({
   selector: 'app-pagination-controller',
   templateUrl: './pagination-controller.component.html',

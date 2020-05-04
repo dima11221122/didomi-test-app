@@ -18,7 +18,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 
-
+/**
+ * Module for displaying list of created consents
+ */
 @NgModule({
   declarations: [CollectedConsentsComponent, StringifyConsentPipe, PaginationControllerComponent, PaginationComponent, PaginationPagesPanelComponent],
   imports: [

@@ -6,7 +6,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { UiEffects } from './store/ui/ui.effects';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
-
+/**
+ * Module for sharing code between modules
+ */
 @NgModule({
   declarations: [],
   imports: [

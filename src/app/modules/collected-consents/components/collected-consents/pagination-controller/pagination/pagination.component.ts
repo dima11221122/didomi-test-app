@@ -10,6 +10,9 @@ import {
 } from '@angular/core';
 import { PageItem, PagesPanelGeneratorService } from './pagination-pages-panel/pages-panel-generator/pages-panel-generator.service';
 
+/**
+ * Dumb component for displaying of paginator
+ */
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',

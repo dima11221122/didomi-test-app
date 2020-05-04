@@ -1,3 +1,6 @@
+/**
+ * Consent model
+ */
 export interface Consent {
   id?: number;
   name?: string;
