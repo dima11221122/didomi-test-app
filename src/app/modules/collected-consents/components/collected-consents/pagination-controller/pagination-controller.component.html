@@ -1,0 +1,9 @@
+<app-pagination
+  [currentPage]="currentPage$ | async"
+  [totalPages]="totalPages$ | async"
+  [canNext]="hasNextPage$ | async"
+  [canPrev]="hasPrevPage$ | async"
+  (pageChanged)="setPage($event)"
+  (nextClicked)="nextPage()"
+  (prevClicked)="prevPage()"
+></app-pagination>

@@ -20,6 +20,7 @@ describe('Consents Reducer', () => {
       ];
       const res = consentsReducer(initialState, loadConsentsSuccess({ payload: data }));
       expect(res.entities).toEqual({ 1: data[0] });
+      expect(res.currentPage).toEqual(0);
     });
   });
 

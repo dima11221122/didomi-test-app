@@ -10,11 +10,17 @@ import { SharedModule } from '../shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { StringifyConsentPipe } from './pipes/stringify-consent/stringify-consent.pipe';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaginationControllerComponent } from './components/collected-consents/pagination-controller/pagination-controller.component';
+import { PaginationComponent } from './components/collected-consents/pagination-controller/pagination/pagination.component';
+import { FlexModule } from '@angular/flex-layout';
+import { PaginationPagesPanelComponent } from './components/collected-consents/pagination-controller/pagination/pagination-pages-panel/pagination-pages-panel.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
 @NgModule({
-  declarations: [CollectedConsentsComponent, StringifyConsentPipe],
+  declarations: [CollectedConsentsComponent, StringifyConsentPipe, PaginationControllerComponent, PaginationComponent, PaginationPagesPanelComponent],
   imports: [
     CommonModule,
     CollectedConsentsRoutingModule,
@@ -22,7 +28,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     EffectsModule.forFeature([ConsentsEffects]),
     SharedModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FlexModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class CollectedConsentsModule { }

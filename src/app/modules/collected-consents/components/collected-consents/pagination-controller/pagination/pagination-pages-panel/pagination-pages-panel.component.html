@@ -1,0 +1,9 @@
+<div fxLayout="row" fxLayoutAlign="start center">
+  <ng-container *ngFor="let item of pageItems; let i=index">
+    <ng-container [ngSwitch]="item.type">
+      <button *ngSwitchCase="'placeholder'" mat-button>...</button>
+      <button *ngSwitchCase="'pageNumber'" mat-button (click)="changePageNumber(item.number)">{{item.number}}</button>
+      <button *ngSwitchCase="'activePageNumber'" mat-raised-button color="primary">{{item.number}}</button>
+    </ng-container>
+  </ng-container>
+</div>

@@ -3,28 +3,18 @@ import { CommonModule } from '@angular/common';
 import { json, NgxMockServerModule, RouteDeclaration } from 'ngx-mock-server';
 import { Consent } from '../modules/shared/models/consent';
 import { HttpRequest } from '@angular/common/http';
+import * as faker from 'faker';
 
-let id = 4;
+let consents: Consent[] = [...Array(4)].map((_, index) => ({
+  id: index,
+  name: faker.name.findName(),
+  email: faker.internet.email(),
+  receiveNewsletter: faker.random.boolean(),
+  trackVisits: faker.random.boolean(),
+  targetedAds: faker.random.boolean()
+}));
 
-let consents: Consent[] = [
-  {
-    id: 1,
-    name: 'John Doe',
-    email: 'super@mail.com',
-    receiveNewsletter: true
-  },
-  {
-    id: 2,
-    name: 'Foo bar',
-    email: 'foo@bar.org',
-    receiveNewsletter: true,
-    trackVisits: true
-  },
-  {
-    id: 3,
-    receiveNewsletter: true
-  }
-];
+let id = consents.length;
 
 export function createConsent(req?: HttpRequest<Consent>) {
   const data = { ...req.body, id: id++ };

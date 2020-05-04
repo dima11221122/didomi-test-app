@@ -1,0 +1,13 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <button mat-button [disabled]="!canPrev" (click)="prevPage()">
+    <mat-icon>chevron_left</mat-icon> Previous page
+  </button>
+  <app-pagination-pages-panel
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChanged)="changePageNumber($event)"
+  ></app-pagination-pages-panel>
+  <button mat-button [disabled]="!canNext" (click)="nextPage()">
+    Next page <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

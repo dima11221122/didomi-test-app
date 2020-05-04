@@ -19,14 +19,16 @@ export const initialState: ConsentsState = consentsAdapter.getInitialState({
   currentPage: 0
 });
 
-const calculateTotalPagesCount = (state: ConsentsState): number => {
+export const calculateTotalPagesCount = (state: ConsentsState): number => {
   const numberOfEntities = Object.values(state.entities).length;
   return Math.floor(numberOfEntities / PAGE_SIZE) + (numberOfEntities % PAGE_SIZE === 0 ? 0 : 1);
 };
 
 export const consentsReducer = createReducer(
   initialState,
-  on(loadConsentsSuccess, (state, { payload }) => consentsAdapter.addMany(payload, state)),
+  on(loadConsentsSuccess, (state, { payload }) => {
+    return { ...consentsAdapter.setAll(payload, state), currentPage: 0 }
+  }),
   on(nextPage, state => {
     const totalPagesCount = calculateTotalPagesCount(state);
     const { currentPage } = state;
