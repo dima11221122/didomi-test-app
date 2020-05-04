@@ -7,7 +7,7 @@ describe('StringifyConsentPipe', () => {
   beforeEach(() => {
     pipe = new StringifyConsentPipe();
     consent = {};
-  })
+  });
 
   describe('one consent selected', () => {
     const consents = [
@@ -20,14 +20,14 @@ describe('StringifyConsentPipe', () => {
       it(`get ${text} if ${field} is selected`, () => {
         consent[field] = true;
         expect(pipe.transform(consent)).toEqual(text);
-      })
+      });
     }
-  })
+  });
 
   it('two selected consents', () => {
     consent.trackVisits = true;
     consent.receiveNewsletter = true;
-    expect(pipe.transform(consent)).toEqual('Receive newsletter, Contribute to anonymous visit statistic')
+    expect(pipe.transform(consent)).toEqual('Receive newsletter, Contribute to anonymous visit statistic');
   });
 
   it('three selected consents', () => {
@@ -35,5 +35,5 @@ describe('StringifyConsentPipe', () => {
     consent.trackVisits = true;
     consent.targetedAds = true;
     expect(pipe.transform(consent)).toEqual('Receive newsletter, Be shown targeted ads, Contribute to anonymous visit statistic');
-  })
+  });
 });

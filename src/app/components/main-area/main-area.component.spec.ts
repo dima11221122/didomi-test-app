@@ -54,20 +54,20 @@ describe('MainAreaComponent', () => {
       router.initialNavigation();
       fixture.detectChanges();
       routerNavigateSpy = spyOn(router, 'navigateByUrl');
-    })
+    });
 
     const links = [
       { title: 'Give consent', link: '/give-consent' },
       { title: 'Collected consents', link: '/consents' },
     ] as const;
 
-    for (let { link, title } of links) {
+    for (const { link, title } of links) {
       it(`should navigate to give ${link} page if ${title} link is clicked`, () => {
         const linkElement = fixture.debugElement.query(By.css(`a[href="${link}"]`));
         linkElement.triggerEventHandler('click', { button: 0 });
         const linkObj = router.createUrlTree([link]);
         expect(routerNavigateSpy).toHaveBeenCalledWith(linkObj, { skipLocationChange: false, replaceUrl: false, state: undefined });
-      })
+      });
     }
-  })
+  });
 });

@@ -21,7 +21,7 @@ describe('Consents selectors', () => {
 
   it('selectConsents should return slice of consents based on currentPage', () => {
     const secondState = consentsReducer(prevState, setPage({payload: 2}));
-    expect(selectConsents.projector(secondState)).toEqual(consents.slice(4,6));
+    expect(selectConsents.projector(secondState)).toEqual(consents.slice(4, 6));
   });
 
   it('selectTotalPages should return total count of pages', () => {
@@ -42,8 +42,8 @@ describe('Consents selectors', () => {
     it('should return false if there are not pages ahead', () => {
       const secondState = consentsReducer(prevState, setPage({payload: 4}));
       expect(hasNextPage.projector(secondState)).toEqual(false);
-    })
-  })
+    });
+  });
 
   describe('hasPrevStep', () => {
     it('should return true if current page in the middle of pages range', () => {
@@ -54,11 +54,11 @@ describe('Consents selectors', () => {
     it('should return true if there are not pages ahead', () => {
       const secondState = consentsReducer(prevState, setPage({payload: 4}));
       expect(hasPrevPage.projector(secondState)).toEqual(true);
-    })
+    });
 
     it('should return false if current page equals 0', () => {
       const secondState = consentsReducer(prevState, setPage({payload: 0}));
       expect(hasPrevPage.projector(secondState)).toEqual(false);
     });
-  })
-})
+  });
+});

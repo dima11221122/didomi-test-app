@@ -19,5 +19,5 @@ export class UiEffects {
   showSuccessMessage$ = createEffect(() => this.actions$.pipe(
     ofType(showSuccessMessage.type),
     tap(({ payload }) => this.snackBar.open(payload))
-  ), { dispatch: false })
+  ), { dispatch: false });
 }

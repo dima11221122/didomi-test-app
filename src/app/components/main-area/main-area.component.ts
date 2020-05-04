@@ -12,7 +12,7 @@ export class MainAreaComponent {
   links = [
     { title: 'Give consent', link: '/give-consent' },
     { title: 'Collected consents', link: '/consents' },
-  ]
+  ];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

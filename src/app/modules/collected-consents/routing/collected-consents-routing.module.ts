@@ -13,7 +13,7 @@ const routes: Routes = [
       consents: ConsentsResolverService
     }
   }
-]
+];
 
 @NgModule({
   declarations: [],

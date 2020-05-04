@@ -25,7 +25,7 @@ describe('CreateConsentEffects', () => {
       ]
     });
 
-    effects = TestBed.get<ConsentsManagementEffects>(ConsentsManagementEffects);
+    effects = TestBed.inject<ConsentsManagementEffects>(ConsentsManagementEffects);
   });
 
   it('should be created', () => {

@@ -17,13 +17,13 @@ export const loadConsentsFail = createAction(
 
 export const nextPage = createAction(
   '[Consents] next page'
-)
+);
 
 export const previousPage = createAction(
   '[Consents] previous page'
-)
+);
 
 export const setPage = createAction(
   '[Consents] set page',
   props<{ payload: number }>()
-)
+);

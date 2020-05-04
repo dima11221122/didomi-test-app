@@ -34,8 +34,8 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changePageNumber(number: number) {
-    this.pageChanged.emit(number);
+  changePageNumber(pageNumber: number) {
+    this.pageChanged.emit(pageNumber);
   }
 
   nextPage() {

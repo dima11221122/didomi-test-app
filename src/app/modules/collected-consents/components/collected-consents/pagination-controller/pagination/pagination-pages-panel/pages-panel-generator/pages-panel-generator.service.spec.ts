@@ -10,7 +10,7 @@ describe('PagesPanelGeneratorService', () => {
     service = TestBed.inject(PagesPanelGeneratorService);
   });
 
-  let generatePageItems = (
+  const generatePageItems = (
     length: number,
     currentPageNumber: number,
     startNumber: number,
@@ -24,7 +24,7 @@ describe('PagesPanelGeneratorService', () => {
         if (pageNumber === displayedPageNumber) {
           return { type: 'activePageNumber', number: pageNumber };
         } else {
-          return { type: 'pageNumber', number: pageNumber }
+          return { type: 'pageNumber', number: pageNumber };
         }
       });
     if (hasStartPlaceholder) {
@@ -44,11 +44,11 @@ describe('PagesPanelGeneratorService', () => {
 
   describe('#generate', () => {
     it('empty on empty page', () => {
-      expect(service.generate(0,0)).toEqual([]);
-    })
+      expect(service.generate(0, 0)).toEqual([]);
+    });
 
     describe('Total pages equals to PANEL_SIZE', () => {
-      let cases = [
+      const cases = [
         { name: 'current page is in the middle of panel', currentPage: 2 },
         { name: 'current page is in the start of panel', currentPage: 0 },
         { name: 'current page is in the end of panel', currentPage: 4 },
@@ -59,10 +59,10 @@ describe('PagesPanelGeneratorService', () => {
           expect(service.generate(panelSize, currentPage)).toEqual(expected);
         });
       }
-    })
+    });
 
     describe('Total pages is less than PANEL_SIZE', () => {
-      let cases = [
+      const cases = [
         { name: 'current page is in the middle of panel', currentPage: 1 },
         { name: 'current page is in the start of panel', currentPage: 0 },
         { name: 'current page is in the end of panel', currentPage: 2 },
@@ -74,24 +74,24 @@ describe('PagesPanelGeneratorService', () => {
           expect(service.generate(3, currentPage)).toEqual(expected);
         });
       }
-    })
+    });
 
     describe('Total pages is greater than PANEL_SIZE', () => {
       it('current page is in the start of panel', () => {
         const expected: PageItem[] = generatePageItems(panelSize, 1, 1, false, true);
         expect(service.generate(100, 1)).toEqual(expected);
-      })
+      });
 
       it('current page is in the middle of range of pages', () => {
         const expected: PageItem[] = generatePageItems(panelSize, 49, 48, true, true);
         expect(service.generate(100, 49)).toEqual(expected);
-      })
+      });
 
       it('current page is in the end of range of pages', () => {
         const expected: PageItem[] = generatePageItems(panelSize, 98, 96, true, false);
         expect(service.generate(100, 98)).toEqual(expected);
-      })
+      });
 
-    })
+    });
   });
 });

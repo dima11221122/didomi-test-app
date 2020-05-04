@@ -22,11 +22,21 @@ import { MatButtonModule } from '@angular/material/button';
  * Module for displaying list of created consents
  */
 @NgModule({
-  declarations: [CollectedConsentsComponent, StringifyConsentPipe, PaginationControllerComponent, PaginationComponent, PaginationPagesPanelComponent],
+  declarations: [
+    CollectedConsentsComponent,
+    StringifyConsentPipe,
+    PaginationControllerComponent,
+    PaginationComponent,
+    PaginationPagesPanelComponent
+  ],
   imports: [
     CommonModule,
     CollectedConsentsRoutingModule,
-    StoreModule.forFeature(fromCollectedConsents.collectedConsentsFeatureKey, fromCollectedConsents.reducers, { metaReducers: fromCollectedConsents.metaReducers }),
+    StoreModule.forFeature(
+      fromCollectedConsents.collectedConsentsFeatureKey,
+      fromCollectedConsents.reducers,
+      { metaReducers: fromCollectedConsents.metaReducers }
+    ),
     EffectsModule.forFeature([ConsentsEffects]),
     SharedModule,
     MatTableModule,

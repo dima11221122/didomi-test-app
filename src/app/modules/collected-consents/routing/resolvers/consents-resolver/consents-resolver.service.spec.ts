@@ -24,5 +24,5 @@ describe('ConsentsResolverService', () => {
   it('#resolve', () => {
     service.resolve(null, null);
     expect(collectedConsentsMock.loadConsents).toHaveBeenCalled();
-  })
+  });
 });

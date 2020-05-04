@@ -16,7 +16,7 @@ describe('Ui Reducer', () => {
   describe('setLoading action', () => {
     it('should change loading on true if loading param is true', () => {
       const newState = uiReducer(initialState, setLoading({ payload: true }));
-      expect(newState).toEqual(objectContaining({ loading: true }))
-    })
-  })
+      expect(newState).toEqual(objectContaining({ loading: true }));
+    });
+  });
 });

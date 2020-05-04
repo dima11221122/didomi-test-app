@@ -9,7 +9,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: GiveConsentComponent
   }
-]
+];
 
 /**
  * Routing module for {@link GiveConsentModule}

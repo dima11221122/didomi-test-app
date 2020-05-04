@@ -24,7 +24,7 @@ describe('UiEffects', () => {
       ]
     });
 
-    effects = TestBed.get<UiEffects>(UiEffects);
+    effects = TestBed.inject(UiEffects);
   });
 
   it('should be created', () => {

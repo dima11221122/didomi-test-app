@@ -29,6 +29,6 @@ describe('CollectedConsentsService', () => {
     it('should dispatch loadConsents action', () => {
       service.loadConsents();
       expect(storeMock.dispatch).toHaveBeenCalledWith(loadConsents());
-    })
-  })
+    });
+  });
 });

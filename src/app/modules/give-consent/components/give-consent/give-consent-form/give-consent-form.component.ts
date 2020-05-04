@@ -12,7 +12,7 @@ import { Consent } from '../../../../shared/models/consent';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GiveConsentFormComponent implements OnInit {
-  @Output() submitted = new EventEmitter<Consent>()
+  @Output() submitted = new EventEmitter<Consent>();
 
   form: FormGroup;
   constructor(
@@ -26,7 +26,7 @@ export class GiveConsentFormComponent implements OnInit {
       trackVisits: null
     }, {
       validators: this.atLeastOnePermissionRequiredValidator()
-    })
+    });
   }
 
   /**
@@ -37,8 +37,8 @@ export class GiveConsentFormComponent implements OnInit {
       const { receiveNewsletter, targetedAds, trackVisits } = formGroup.value;
       return (receiveNewsletter || targetedAds || trackVisits) ? null : {
         atLeastOnPermissionRequired: true
-      }
-    }
+      };
+    };
   }
 
   ngOnInit() {

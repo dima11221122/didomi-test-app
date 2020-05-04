@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
  * Represent three dots (...) in {@link PaginationPagesPanelComponent}
  */
 export interface PlaceholderPageItem {
-  type: 'placeholder'
+  type: 'placeholder';
 }
 
 /**
  * Represent a non-selected page number (button with {@link number})
  */
 export interface NumberPageItem {
-  type: 'pageNumber',
+  type: 'pageNumber';
   number: number;
 }
 
@@ -19,7 +19,7 @@ export interface NumberPageItem {
  * Represent a selected page number (primary button with {@link number})
  */
 export interface ActivePageNumberItem {
-  type: 'activePageNumber',
+  type: 'activePageNumber';
   number: number;
 }
 
@@ -37,8 +37,8 @@ export class PagesPanelGeneratorService {
   /**
    * Calculate the start page number of subrange of the pages range so
    * currentPage will be preferably at the center of this subrange or at least inside of the subrange
-   * @param totalPages
-   * @param currentPage
+   * @param totalPages - total count of pages
+   * @param currentPage - current page
    * @return start index (start page) of subrange
    */
   // put currentPage in the center of the panel or at least inside of one
@@ -54,8 +54,8 @@ export class PagesPanelGeneratorService {
 
   /**
    * Generate intermediate representation for {@link PaginationPagesPanelComponent}
-   * @param totalPages
-   * @param currentPage
+   * @param totalPages - total count of pages
+   * @param currentPage - current page
    */
   generate(totalPages: number, currentPage: number): PageItem[] {
     const startIndex = this.calculateStartIndex(totalPages, currentPage);

@@ -31,8 +31,8 @@ export class PaginationControllerComponent implements OnInit {
     this.tableHandlerService.prevPage();
   }
 
-  setPage(number: number) {
-    this.tableHandlerService.setPage(number);
+  setPage(pageNumber: number) {
+    this.tableHandlerService.setPage(pageNumber);
   }
 
 }

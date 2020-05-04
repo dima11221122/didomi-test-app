@@ -63,25 +63,25 @@ describe('GiveConsentFormComponent', () => {
         atLeastOnPermissionRequired: true
       });
     });
-    for (let field of ['receiveNewsletter', 'targetedAds', 'trackVisits']) {
+    for (const field of ['receiveNewsletter', 'targetedAds', 'trackVisits']) {
       it(`should return null if ${field} is selected`, () => {
         formGroupMock.value[field] = true;
-        expect(component.atLeastOnePermissionRequiredValidator()(formGroupMock as FormGroup)).toBeNull()
-      })
+        expect(component.atLeastOnePermissionRequiredValidator()(formGroupMock as FormGroup)).toBeNull();
+      });
     }
-  })
+  });
 
   const getSubmitButton = (): DebugElement => {
     return fixture.debugElement.query(By.css('button'));
-  }
+  };
 
   const getEmailElement = (): DebugElement => {
     return fixture.debugElement.query(By.css('mat-form-field input[formcontrolname="email"]'));
-  }
+  };
 
   const getCheckboxByName = (checkboxName: string): DebugElement => {
-    return fixture.debugElement.query(By.css(`mat-checkbox[formcontrolname="${checkboxName}"] input`))
-  }
+    return fixture.debugElement.query(By.css(`mat-checkbox[formcontrolname="${checkboxName}"] input`));
+  };
 
   describe('email field', () => {
     let emailElement: DebugElement;
@@ -90,24 +90,24 @@ describe('GiveConsentFormComponent', () => {
 
     beforeEach(() => {
       emailElement = getEmailElement();
-    })
+    });
 
-    let clickAndBlur = () => {
+    const clickAndBlur = () => {
       emailElement.triggerEventHandler('click', {button: 0});
       fixture.detectChanges();
       emailElement.triggerEventHandler('blur', null);
       fixture.detectChanges();
-    }
+    };
 
     it('should be initially valid', () => {
       expect(getEmailElement().classes[invalidClass]).not.toBeTrue();
-    })
+    });
 
     it('should be valid if email is empty', () => {
       clickAndBlur();
       const newEmailElement = getEmailElement();
       expect(newEmailElement.classes[invalidClass]).not.toBeTrue();
-    })
+    });
 
     it('should be invalid if email is incorrect', () => {
       emailElement.nativeElement.value = 'mail';
@@ -115,7 +115,7 @@ describe('GiveConsentFormComponent', () => {
       clickAndBlur();
       const newEmailElement = getEmailElement();
       expect(newEmailElement.classes[invalidClass]).toBeTrue();
-    })
+    });
   });
 
   describe('checkboxes', () => {
@@ -124,16 +124,16 @@ describe('GiveConsentFormComponent', () => {
       'targetedAds',
       'trackVisits'
     ];
-    for (let checkboxName of checkboxes) {
+    for (const checkboxName of checkboxes) {
       it(`form should be valid if ${checkboxName} is activated`, () => {
         expect(getSubmitButton().nativeElement.disabled).toBeTrue();
         const checkbox = getCheckboxByName(checkboxName);
         checkbox.triggerEventHandler('click', new Event('click'));
         fixture.detectChanges();
         expect(getSubmitButton().nativeElement.disabled).not.toBeTrue();
-      })
+      });
     }
-  })
+  });
 
   describe('submit form', () => {
     const trySubmitByEnter = () => {
@@ -143,10 +143,10 @@ describe('GiveConsentFormComponent', () => {
       form.triggerEventHandler('submit', null);
       fixture.detectChanges();
       return submittedData;
-    }
+    };
     it('invalid form should not be submitted on Enter', () => {
       expect(trySubmitByEnter()).toBeNull();
-    })
+    });
 
     it('invalid form should not be submitted on Enter', () => {
       const checkbox = getCheckboxByName('receiveNewsletter');
@@ -154,6 +154,6 @@ describe('GiveConsentFormComponent', () => {
       fixture.detectChanges();
       const expectedData = {name: null, email: null, receiveNewsletter: true, targetedAds: null, trackVisits: null};
       expect(trySubmitByEnter()).toEqual(expectedData);
-    })
-  })
+    });
+  });
 });

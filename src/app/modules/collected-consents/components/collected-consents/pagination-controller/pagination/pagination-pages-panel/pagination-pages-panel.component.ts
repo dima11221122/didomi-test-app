@@ -37,8 +37,8 @@ export class PaginationPagesPanelComponent implements OnInit, OnChanges {
     this.pageItems = this.pagesPanelGeneratorService.generate(this.totalPages, this.currentPage);
   }
 
-  changePageNumber(number: number) {
-    return this.pageChanged.emit(number - 1);
+  changePageNumber(pageNumber: number) {
+    return this.pageChanged.emit(pageNumber - 1);
   }
 
 

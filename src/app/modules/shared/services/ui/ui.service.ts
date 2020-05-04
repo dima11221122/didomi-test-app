@@ -27,7 +27,7 @@ export class UiService {
 
   /**
    * Show message in snack bar
-   * @param message
+   * @param message - message which'll be shown in snack bar
    */
   showSuccessMessage(message: string) {
     this.store.dispatch(showSuccessMessage({ payload: message }));

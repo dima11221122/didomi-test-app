@@ -47,13 +47,13 @@ describe('LoaderComponent', () => {
       fixture.detectChanges();
       const loadingBar = fixture.nativeElement.querySelector('mat-progress-bar');
       expect(loadingBar).toBeNull();
-    })
+    });
 
     it('should be shown if loading equals true', () => {
       loadingServiceMock.selectLoading$.next(true);
       fixture.detectChanges();
       const loadingBar = fixture.nativeElement.querySelector('mat-progress-bar');
       expect(loadingBar).not.toBeNull();
-    })
-  })
+    });
+  });
 });

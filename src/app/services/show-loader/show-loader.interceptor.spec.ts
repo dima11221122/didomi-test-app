@@ -8,7 +8,7 @@ import { HttpHandler } from '@angular/common/http';
 describe('ShowLoaderInterceptor', () => {
   let uiServiceMock: {
     setLoading: jasmine.Spy
-  }
+  };
   let interceptor: ShowLoaderInterceptor;
   beforeEach(() => {
     uiServiceMock = jasmine.createSpyObj(['setLoading']);
@@ -17,7 +17,7 @@ describe('ShowLoaderInterceptor', () => {
         ShowLoaderInterceptor,
         { provide: UiService, useValue: uiServiceMock }
       ]
-    })
+    });
     interceptor = TestBed.inject(ShowLoaderInterceptor);
   });
 
@@ -29,5 +29,5 @@ describe('ShowLoaderInterceptor', () => {
     expect(uiServiceMock.setLoading).toHaveBeenCalledWith(true);
     subscription.unsubscribe();
     expect(uiServiceMock.setLoading).toHaveBeenCalledWith(false);
-  })
+  });
 });
