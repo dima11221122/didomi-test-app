@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-gh-pages": "ng build --prod --base-href=/didomi-test-app/app --outputPath dist/app",
+    "build-gh-pages": "ng build --prod --deployUrl=https://dima11221122.github.io/didomi-test-app/app/ --base-href=/didomi-test-app/app --outputPath dist/app",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
