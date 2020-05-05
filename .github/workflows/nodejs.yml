@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Cache node modules
       uses: actions/cache@v1
       with:
@@ -23,16 +25,27 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+    - name: Install dependencies for puppeteer
+      run: sudo apt-get install libgbm1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencies
-      run: npm install
+      run: npm ci
     - name: Lint
       run: npm run lint
-    - name: Build
-      run: npm run build -- --prod
     - name: Test
       run: npm test -- --configuration=ci
-
+    - name: Build app
+      run: npm run build-gh-pages
+    - name: Hack to make work app after refresh on GH pages
+      run: cp ./dist/app/index.html ./dist/app/404.html
+    - name: Build docs
+      run: npm run compodoc
+    - name: Deploy on Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist
