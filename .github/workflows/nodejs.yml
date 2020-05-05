@@ -39,6 +39,8 @@ jobs:
       run: npm test -- --configuration=ci
     - name: Build app
       run: npm run build-gh-pages
+    - name: Hack to make work app after refresh on GH pages
+      run: cp ./dist/app/index.html ./dist/app/404.html
     - name: Build docs
       run: npm run compodoc
     - name: Deploy on Github Pages
