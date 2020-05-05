@@ -38,7 +38,7 @@ jobs:
     - name: Test
       run: npm test -- --configuration=ci
     - name: Build app
-      run: build-gh-pages
+      run: npm run build-gh-pages
     - name: Build docs
       run: npm run compodoc
     - name: Deploy on Github Pages
