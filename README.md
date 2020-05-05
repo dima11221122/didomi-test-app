@@ -1,4 +1,5 @@
 # DidomiTestApp
+![Didomi Test App CI](https://github.com/dima11221122/didomi-test-app/workflows/Didomi%20Test%20App%20CI/badge.svg)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 

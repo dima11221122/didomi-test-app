@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
     - name: Cache node modules
       uses: actions/cache@v1
       with:
@@ -35,6 +37,13 @@ jobs:
       run: npm run lint
     - name: Test
       run: npm test -- --configuration=ci
-    - name: Build
-      run: npm run build -- --prod
-
+    - name: Build app
+      run: build-gh-pages
+    - name: Build docs
+      run: npm run compodoc
+    - name: Deploy on Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: dist
